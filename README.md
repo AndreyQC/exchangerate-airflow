@@ -23,3 +23,6 @@ exchangerate.host API -> Apache Airflow -> PostgreSQL
 3. Execute the command `docker-compose up airflow-init` from the root of the project directory.
 4. Execute the command `docker-compose up` from the root of the project directory.
 5. Navigate to `localhost:8080/admin` to view the Airflow UI (User: `airflow`; Pwd: `airflow`).
+
+
+6. To stop and delete containers, delete volumes with database data and download images, run: `docker-compose down --volumes --rmi all`
