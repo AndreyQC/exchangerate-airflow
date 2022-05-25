@@ -12,6 +12,7 @@ exchangerate.host API -> Apache Airflow -> PostgreSQL
 
 **Before anything else, you need Docker and `docker-compose` installed.*
 (https://docs.docker.com/desktop/windows/install/)
+
 **More details about running AirFlow in Docker*
 (https://airflow.apache.org/docs/apache-airflow/stable/start/docker.html)
 
@@ -23,6 +24,9 @@ exchangerate.host API -> Apache Airflow -> PostgreSQL
 3. Execute the command `docker-compose up airflow-init` from the root of the project directory.
 4. Execute the command `docker-compose up` from the root of the project directory.
 5. Navigate to `localhost:8080` to view the Airflow UI (User: `airflow`; Pwd: `airflow`).
+6. Run the pipeline `create_exchangerate_db` for creating the table `public.exchangerates` in the database `exchangerate_db`.
+7. Run the pipeline `seed_rates` for loading historical data of international exchange rates.
+8. Run the pipeline `update_rates` for loading delta data of international exchange rates.
 
 ## Setup pgAdmin (for validating the result of ETL process)
 1. Navigate to `http://localhost:5050/browser` to view the pgAdmin UI (User: `pgadmin4@pgadmin.org`; Pwd: `admin1234`).
@@ -35,5 +39,5 @@ exchangerate.host API -> Apache Airflow -> PostgreSQL
     - Password: `admin1234`
  3. Select data from the table `public.exchangerates`
 
-
-6. To stop and delete containers, delete volumes with database data and download images, run: `docker-compose down --volumes --rmi all`
+## Clean up
+1. To stop and delete containers, delete volumes with database data and download images, run: `docker-compose down --volumes --rmi all`
