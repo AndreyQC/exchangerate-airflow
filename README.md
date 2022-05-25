@@ -18,15 +18,16 @@ exchangerate.host API -> Apache Airflow -> PostgreSQL
 
 
 1. Clone the repository in local folder.
-2. Create a `.env` file in the project directory, and add the following variables:
+2. Create `logs` and `plugins` folders in local folder
+3. Create a `.env` file in the project directory, and add the following variables:
     - `AIRFLOW_UID=50000`
     - `AIRFLOW_GID=0`
-3. Execute the command `docker-compose up airflow-init` from the root of the project directory.
-4. Execute the command `docker-compose up` from the root of the project directory.
-5. Navigate to `localhost:8080` to view the Airflow UI (User: `airflow`; Pwd: `airflow`).
-6. Run the pipeline `create_exchangerate_db` for creating the table `public.exchangerates` in the database `exchangerate_db`.
-7. Run the pipeline `seed_rates` for loading historical data of international exchange rates.
-8. Run the pipeline `update_rates` for loading delta data of international exchange rates.
+4. Execute the command `docker-compose up airflow-init` from the root of the project directory.
+5. Execute the command `docker-compose up` from the root of the project directory.
+6. Navigate to `localhost:8080` to view the Airflow UI (User: `airflow`; Pwd: `airflow`).
+7. Run the pipeline `create_exchangerate_db` for creating the table `public.exchangerates` in the database `exchangerate_db`.
+8. Run the pipeline `seed_rates` for loading historical data of international exchange rates.
+9. Run the pipeline `update_rates` for loading delta data of international exchange rates.
 
 ## Setup pgAdmin (for validating the result of ETL process)
 1. Navigate to `http://localhost:5050/browser` to view the pgAdmin UI (User: `pgadmin4@pgadmin.org`; Pwd: `admin1234`).
